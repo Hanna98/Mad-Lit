@@ -1,0 +1,12 @@
+.white-square {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 200px;
+    right: 700px;
+    background: #FFFFFF;
+    box-shadow: -10px 10px 0px #939393;
+    border-radius: 20px;
+    border: none;
+    z-index: 6;
+}

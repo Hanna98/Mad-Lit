@@ -1,0 +1,68 @@
+.button {
+  width: 100px;
+  height: 40px;
+  margin: 0px 10px 0px;
+  background: #302B31;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Vollkorn;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  border: none;
+}
+
+.logSignButtons {
+  right: 200px;
+  justify-content: flex-end;
+  float: right;
+  display: flex;
+  margin-right: 30px;
+  margin-top: 15px;
+  z-index: 10;
+}
+
+
+.topWhiteBar {
+  position: fixed;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  background: #ffffff;
+  margin: 0;
+  z-index: 3;
+}
+
+.madLit {
+  position: relative;
+  margin: 0px;
+  padding-left: 20px;
+  font-family: 'Permanent Marker';
+  
+  width: 238px;
+  height: 112px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 70px;
+  text-decoration: none;
+}
+
+.searchBar {
+  position: relative;
+  width: 514px;
+  height: 35px;
+  background: #E7E7E7;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  border: none;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 80px;
+}
