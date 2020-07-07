@@ -1,0 +1,108 @@
+.absoluteContainer {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.leftBoxContainer {
+    display: flex;
+}
+
+.leftBox {
+    justify-items: center;
+    align-items: center;
+    color: white;
+    width: 20vw;
+    flex-direction: column;
+    display: flex;
+    background: #302B31;
+}
+
+.circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: white;
+    margin-top: 30px;
+}
+
+.madLit {
+    position: relative;
+    padding-top: 30px;
+    padding-left: 20px;
+    margin: 0;
+    font-family: 'Permanent Marker';
+    width: 238px;
+    height: 112px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 70px;
+    color: white;
+}
+
+.button {
+    position: relative;
+    margin: 10px;
+    width: 216px;
+    height: 40px;
+    color: white;
+    background: #000000;
+    border-radius: 20px;
+    border: none;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-flow: column;
+}
+
+.fullTabHeader{
+    height:75px;
+    background: #302B31;
+    color:white;
+        
+}
+
+.navTab {
+    position: relative;
+    width: 255px;
+    height: 75px;
+    color: white;
+    background: #302B31;
+    border-radius: 0px 0px 20px 0px;
+    z-index:3;
+}
+
+
+.container { /* main */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .outerGridContainer{ /* content */
+    display:flex;
+    flex:1;
+    overflow:auto;
+    /* background:blue; */
+  }
+  .gridContainer { /* box */
+    display: flex;
+   flex:1;
+    /* background: firebrick; */
+    align-items:center;
+    justify-items: center;
+    justify-content:center;
+    align-content: center;
+    /* 
+    overflow: scroll;
+  */
+  }
+

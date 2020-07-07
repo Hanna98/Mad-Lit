@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Playing.css';
+import play from './Playing.module.css';
 import Navigation from '../Navigation/Navigation.js';
 
 const Playing = () => {
@@ -10,29 +10,32 @@ const Playing = () => {
 
     return (
         <div>
-            <div className="backgroundContainer">
-                <Navigation />
-                <div className="backgroundHomePlaying">
+            <div className={play.backgroundHome}></div>
+            
 
-                    <div className="middleSquareContainer">
-                        <div className="middleSquare">
-                            
-                            
-                            <form>
-                                <input className="barsPlaying"></input>
-                                <input className="barsPlaying"></input>
-                                <input className="barsPlaying"></input>
-                                <input className="barsPlaying"></input>
-                                <input className="barsPlaying"></input>
-                                <input className="barsPlaying"></input>
+            <Navigation />
+            <div className={play.absoluteContainer}>
+                <div className={play.middleSquareContainer}>
+                    <div className={play.middleSquare}>
 
 
-                            </form>
-                        </div>
+                        <form>
+                            <input className={play.bars}></input> <button className={play.randomButton}>RANDOM</button>
+                            <input className={play.bars}></input>
+                            <input className={play.bars}></input>
+                            <input className={play.bars}></input>
+                            <input className={play.bars}></input>
+                            <input className={play.bars}></input>
+                            {/* add more bars to trigger overflow, FIX MARGINS */}
 
+
+                        </form>
                     </div>
                 </div>
+
             </div>
+
+
         </div>
 
 

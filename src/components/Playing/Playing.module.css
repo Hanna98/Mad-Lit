@@ -1,0 +1,71 @@
+.backgroundHome {
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #302B31;
+    z-index: -2;
+}
+
+.middleSquareContainer{ /* main */
+
+    flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    
+}
+
+
+.middleSquare { /* content */
+    width: 1000px;
+    height: 500px;
+
+    display: flex;
+    overflow: auto;
+
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+}
+.formContainer{
+    display:flex;
+}
+
+.bars {
+    width: 299px;
+    height: 30px;
+    margin: 15px;
+    display: flex;
+    background: #DFDEDE;
+    border-radius: 20px;
+    border: none;
+
+}
+
+.randomButton{
+    width: 72px;
+height: 30px;
+background-color: #302B31;
+
+}
+.titlePlaying{
+    position: relative;
+    font-family: Vollkorn;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+/*** xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+.absoluteContainer{ /* body */
+    display: flex;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,31 @@
+.whiteSquare {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    /*
+    top: 200px;
+    right: 700px;
+    */
+    
+    background: #FFFFFF;
+    box-shadow: -10px 10px 0px #939393;
+    border-radius: 20px;
+    border: none;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.whiteSquareContainer {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-column-gap: 4rem;
+    grid-row-gap: 2rem;
+    margin-top: 500px; /* avoid pixel unit, change this, nav and header. */
+    /*
+    grid-auto-rows: auto;
+    gap: 10%;
+    */
+}
