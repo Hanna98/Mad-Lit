@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Cards = () => {
 
-
-
-
     return (
         <div>
             <Link to="/playing">

@@ -33,7 +33,7 @@
     border: none;
 }
 
-.signUpButton {
+.button {
     position: relative;
     width: 311px;
     height: 50px;
@@ -59,7 +59,7 @@
 }
 
 
-.signUpTitle {
+.title {
     position: fixed;
     width: 301px;
     height: 10px;

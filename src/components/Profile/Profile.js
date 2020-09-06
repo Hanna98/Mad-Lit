@@ -1,5 +1,5 @@
 import React from 'react';
-import user from './User.module.css';
+import profile from './Profile.module.css';
 import Cards from '../Cards/Cards.js';
 import { Link } from 'react-router-dom';
 
@@ -10,32 +10,32 @@ const User = () => {
     return (
         <div>
             <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"></link>
-            <div className={user.absoluteContainer}>
-                <div className={user.leftBoxContainer}>
+            <div className={profile.absoluteContainer}>
+                <div className={profile.leftBoxContainer}>
                 
 
 
-                    <div className={user.leftBox}>
+                    <div className={profile.leftBox}>
                         
-                        <h1 className={user.madLit}> MADLIT</h1>
-                        <div className={user.circle}>
+                        <h1 className={profile.madLit}> MADLIT</h1>
+                        <div className={profile.circle}>
 
                         </div>
                         <p>Change Photo</p>
-                        <div className={user.buttonContainer}>
-                            <button className={user.button}>
+                        <div className={profile.buttonContainer}>
+                            <button className={profile.button}>
                                 Create New Story
                         </button>
 
-                            <button className={user.button}>
+                            <button className={profile.button}>
                                 My Stories
                         </button>
 
-                            <button className={user.button}>
+                            <button className={profile.button}>
                                 Liked Stories
                         </button>
 
-                            <button className={user.button}>
+                            <button className={profile.button}>
                                 Settings
                         </button>
                         </div>
@@ -46,14 +46,14 @@ const User = () => {
                 </div>
 
 
-                <div className={user.container}>
-                    <header className={user.fullTabHeader}>
-                        <div className={user.navTab}>dksdjfn</div>
+                <div className={profile.container}>
+                    <header className={profile.fullTabHeader}>
+                        <div className={profile.navTab}>dksdjfn</div>
                     </header>
-                    <div className={user.outerGridContainer}>
+                    <div className={profile.outerGridContainer}>
                    
 
-                        <div className={user.gridContainer}>
+                        <div className={profile.gridContainer}>
                             <Cards />
 
                         </div>

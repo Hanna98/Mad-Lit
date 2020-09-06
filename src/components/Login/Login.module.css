@@ -1,9 +1,9 @@
-.middleSquareContainerLog {
+.middleSquareContainer {
     display: flex;
     justify-content: center;
 }
 
-.middleSquareLog {
+.middleSquare {
     position: absolute;
     width: 608px;
     height: 100%;
@@ -32,7 +32,7 @@
     color: #909090;
 }
 
-.logInBtn {
+.btn {
     background: #302B31;
     position: relative;
     width: 311px;
@@ -52,7 +52,7 @@
     line-height: 33px;
     border: none;
 }
-.logInBtnContainer{
+.btnContainer{
     display: flex;
     text-align:center;
 }
@@ -64,7 +64,7 @@
     border: 1px solid #909090;
 }
 
-.logInTitle {
+.title {
     position: absolute;
     width: 301px;
     height: 10px;

@@ -1,29 +1,85 @@
 import React, { Component } from 'react'
-import './Login.css';
+import login from './Login.module.css';
 
+class Login extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            logInEmail: '',
+            logInPassword: ''
+        }
+    }
+    
+    onEmailChange = (event) => {
+        this.setState({logInEmail: event.target.value})
+    }
 
-const Login = () => {
+    onPasswordChange = (event) => {
+        this.setState({logInPassword: event.target.value})
+    }
 
+    onSubmitLogIn = () => {
+        fetch('http://localhost:3001/login', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                email: this.state.logInEmail,
+                password:this.state.logInPassword
+            })
+        
+        })
+            .then(response => response.json())
+            .then(user => {
+                if (user.id) {
+                   this.props.history.push('/');
+                   
+                }
+            })
+        
+    }
+
+render(){
+    
     return (
         <div>
             <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"></link>
-            <div className="loginBackground">
+            <div className={login.loginBackground}>
 
             </div>
 
-            <div className="middleSquareContainerLog">
-                <div className="middleSquareLog">
-                    <h1 className="logInTitle">WELCOME BACK</h1>
+            <div className={login.middleSquareContainer}>
+                <div className={login.middleSquare}>
+                    <h1 className={login.title}>WELCOME BACK</h1>
                     <form>
-                        <input className="bar" type="username" placeholder="username or email"></input>
-                        <input className="bar" type="password" placeholder="password"></input>
-                        <div className="grayLine">
+                        <input className={login.bar}
+                         onChange={this.onEmailChange} 
+                         type="username"
+                         placeholder="username or email">
+
+                        </input>
+                        
+                        <input className={login.bar} 
+                        onChange={this.onPasswordChange} 
+                        type="password" 
+                        placeholder="password">
+
+                        </input>
+
+                        <div className={login.grayLine}>
                         
                         </div>
-                        <div className="logInBtnContainer">
-                        <button className="logInBtn">Log in </button>
+                        
+                        
+                        <div className={login.btnContainer}>
+                        <input className={login.btn} 
+                            onClick={this.onSubmitLogIn}
+                            placeholder="Log In"
+                            >
+                        </input>
                         </div>
-                        <button className="bar">Log in with Google</button>
+                        
+
+                        <button className={login.bar}>Log in with Google</button>
                         
                     </form>
                     
@@ -33,7 +89,6 @@ const Login = () => {
         </div>
 
     );
-
+    }
 }
-
 export default Login;
