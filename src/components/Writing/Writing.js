@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import writing from './Writing.module.css';
 import Navigation from '../Navigation/Navigation.js';
-import Word from '../Writing/Word.js';
 
 
 class Writing extends React.Component {
     constructor(props) {
-        super(props);
+        super();
         this.state = {
             showButtons: false,
-            loading: true
+            loading: true,
+            showTextBox: true
         }
     }
 
@@ -17,24 +17,46 @@ class Writing extends React.Component {
     wordArray = [];
 
     componentDidMount() {
-        this.theProcess();
+      // this.theProcess();
     }
 
     onNounClick = () => {
         console.log(this.clickedIndex)
-        if(this.clickedIndex === null) { return; }
+        if (this.clickedIndex === null) { return; }
         this.wordArray[this.clickedIndex].partOfSpeech = 'noun';
         console.log(this.wordArray);
+        this.setState({ showButtons: false })
+
     }
 
+    onAdjectiveClick = () => {
+        console.log(this.clickedIndex)
+        if (this.clickedIndex === null) { return; }
+        this.wordArray[this.clickedIndex].partOfSpeech = 'adjective';
+        console.log(this.wordArray);
+        this.setState({ showButtons: false })
 
+    }
+
+    onVerbClick = () => {
+        console.log(this.clickedIndex)
+        if (this.clickedIndex === null) { return; }
+        this.wordArray[this.clickedIndex].partOfSpeech = 'Verb';
+        console.log(this.wordArray);
+        this.setState({ showButtons: false })
+
+    }
+
+   
     // theProcess is run after user writes the story and submits it 
     // theProcess splits the words up into usable variables
-   theProcess = () => {
-        let story2 = `There once was a beautiful cat. My-oh-my what a beautiful cat! It was so beautiful that everyone died the end.`
+    theProcess = (event) => {
+       // event.preventDefault();
+        let story = document.getElementById('myTextArea').value;
+
 
         console.log('the process was called');
-        let words = story2.trim().split(/[;,.!?\s]+/); // BUG!!! extra value at the end ?? ("") 
+        let words = story.trim().split(/[;,.!?\s]+/); // BUG!!! extra value at the end ?? ("") 
 
         this.wordArray = words.map((word) => {
             return {
@@ -42,17 +64,18 @@ class Writing extends React.Component {
                 partOfSpeech: null
             };
         });
+        console.log(this.wordArray);
+        this.setState({ loading: false })
+        this.setState({ showTextBox: false })
 
-        this.setState({loading: false})
     }
 
     handleClick = (index) => {
-        this.setState({showButtons: true})
+        this.setState({ showButtons: true })
         this.clickedIndex = index;
     };
 
     render() {
-        let story3 = `hello this is a test. do dashes-count? it looks like punctuation doesn't; at all!!!!`
 
         return (
             <div>
@@ -63,18 +86,30 @@ class Writing extends React.Component {
                 <div className={writing.absoluteContainer}>
                     <div className={writing.middleSquareContainer}>
                         <div className={writing.middleSquare}>
-
+                            {this.state.showTextBox &&
+                            <form>
+                                <textarea id="myTextArea" rows="20" cols="80"> Write a fire ass story bith </textarea>
+                                <button onClick ={()=> {this.theProcess()}}> Submit!! </button>
+                            </form>
+                            }
                             <p>
-                                {this.wordArray.map((wordObject, i) => (<span onClick={() => {this.handleClick(i)}}>{wordObject.word} </span>))}
+                                {this.wordArray.map((wordObject, i) => (<span onClick={() => { this.handleClick(i) }}>{wordObject.word} </span>))}
                             </p>
 
                             {this.state.showButtons && <div>
                                 <button
                                     onClick={this.onNounClick}>
                                     NOUN
-                                    </button>
-                                <button>ADJECTIVE</button>
-                                <button>VERB</button>
+                                </button>
+
+                                <button
+                                    onClick={this.onAdjectiveClick}>
+                                    ADJECTIVE
+                                </button>
+                                <button
+                                    onClick={this.onVerbClick}>
+                                    VERB
+                                </button>
                             </div>}
                         </div>
                     </div>

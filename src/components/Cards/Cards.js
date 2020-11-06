@@ -1,68 +1,29 @@
 import React from 'react';
 import cards from './Cards.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const Cards = () => {
+const Cards = (props) => {
+
+    console.log(useLocation())
 
     return (
         <div>
-            <Link to="/playing">
+            <Link to={{
+
+                pathname: "/playing",
+                state: {
+                    'story': props.story,
+                    'storyName': props.storyName
+                }
+            }}>
                 <div className={cards.whiteSquareContainer}>
 
                     <button className={cards.whiteSquare}>
-                        CARD NUMBER 1
+                        {props.storyName}
+                        {props.story}
                     </button>
 
-                    <button className={cards.whiteSquare}>
-                        woooooooookershnooooo
-                     </button>
 
-                     
-                    <button className={cards.whiteSquare}>
-                        CARD NUMBER 3
-                     </button>
-
-                     <button className={cards.whiteSquare}>
-                        CARD NUMBER NUMBER 4
-                     </button>
-                     <button className={cards.whiteSquare}>
-                        CARD NUMBER 1
-                    </button>
-
-                    <button className={cards.whiteSquare}>
-                        woooooooookershnooooo
-                     </button>
-
-                     
-                    <button className={cards.whiteSquare}>
-                        CARD NUMBER 3
-                     </button>
-
-                     <button className={cards.whiteSquare}>
-                        CARD NUMBER NUMBER 4
-                     </button>
-                     <button className={cards.whiteSquare}>
-                        CARD NUMBER 1
-                    </button>
-
-                    <button className={cards.whiteSquare}>
-                        woooooooookershnooooo
-                     </button>
-
-                     
-                    <button className={cards.whiteSquare}>
-                        CARD NUMBER 3
-                     </button>
-
-                     <button className={cards.whiteSquare}>
-                        CARD NUMBER NUMBER 4
-                     </button>
-                     
-                     
-
-                     
-
-                     
 
                 </div>
 
