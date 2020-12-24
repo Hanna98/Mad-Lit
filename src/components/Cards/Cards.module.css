@@ -15,17 +15,3 @@
     cursor: pointer;
 }
 
-.whiteSquareContainer {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    grid-column-gap: 4rem;
-    grid-row-gap: 2rem;
-    margin-top: 500px; /* avoid pixel unit, change this, nav and header. */
-    /*
-    grid-auto-rows: auto;
-    gap: 10%;
-    */
-}

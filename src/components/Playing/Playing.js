@@ -1,4 +1,4 @@
-import React, { useState,  useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import play from './Playing.module.css';
 import Navigation from '../Navigation/Navigation.js';
 import { Link, useLocation } from 'react-router-dom';
@@ -10,73 +10,55 @@ import { Link, useLocation } from 'react-router-dom';
 const Playing = (props) => {
     let [showInputs, setShowInputs] = useState(true);
     let [showStory, setShowStory] = useState(false);
-    let[newStory, setNewStory]=useState([])
-    console.log(newStory)
-
-   let location = useLocation();
+    let [story22, setStory22] = useState([])
+    let location = useLocation();
     console.log(location)
-
-    let story22 = [
-        { word: "There", partOfSpeech: null },
-        { word: "once", partOfSpeech: null },
-        { word: "was", partOfSpeech: null },
-        { word: "a", partOfSpeech: null },
-        { word: "beautiful", partOfSpeech: "adjective" },
-        { word: "cat", partOfSpeech: "noun" },
-        { word: "My-oh-my", partOfSpeech: null },
-        { word: "what", partOfSpeech: null },
-        { word: "a", partOfSpeech: null },
-        { word: "beautiful", partOfSpeech: "adjective" },
-        { word: "cat", partOfSpeech: "noun" },
-        { word: "It", partOfSpeech: null },
-        { word: "was", partOfSpeech: null },
-        { word: "so", partOfSpeech: null },
-        { word: "beautiful", partOfSpeech: "adjective" },
-        { word: "that", partOfSpeech: null },
-        { word: "everyone", partOfSpeech: null },
-        { word: "died", partOfSpeech: null },
-        { word: "the", partOfSpeech: null },
-        { word: "end", partOfSpeech: null },
-    ]
+    console.log(story22)
 
     useEffect(() => {
+        formatStoryArray();
         convertToPlay();
-    },[]);
+    }, []);
 
-    // componentDidMount() {
-    //     this.convertToPlay();
+    let formatStoryArray = () => {
 
-    // }
+        let words = location.state.story
+        let trimmy = words.trim().split(/[;,.!?\s]+/);
+
+        console.log(trimmy) //[there once was....]
+
+        let parts = location.state.partOfSpeech
+        let trimmyParts = parts.trim().split(/[;,.!?\s]+/);
+
+        // console.log(trimmyParts) //[null,null, noun]
+
+        story22.push({
+            word: null,
+            partOfSpeech: null
+        })
+        let index = 0;
+
+        for (let i = 0; i < trimmy.length; i++) {
+
+            story22.push({
+                word: story22[i].word = trimmy[index],
+                partOfSpeech: story22[i].partOfSpeech = trimmyParts[index]
+            })
+            index++;
+
+        }
+        console.log(story22)
+    }
+
+
+
 
 
     let convertToPlay = () => {
-        let story22 = [
-            { word: "There", partOfSpeech: null },
-            { word: "once", partOfSpeech: null },
-            { word: "was", partOfSpeech: null },
-            { word: "a", partOfSpeech: null },
-            { word: "beautiful", partOfSpeech: "adjective" },
-            { word: "cat", partOfSpeech: "noun" },
-            { word: "My-oh-my", partOfSpeech: null },
-            { word: "what", partOfSpeech: null },
-            { word: "a", partOfSpeech: null },
-            { word: "beautiful", partOfSpeech: "adjective" },
-            { word: "cat", partOfSpeech: "noun" },
-            { word: "It", partOfSpeech: null },
-            { word: "was", partOfSpeech: null },
-            { word: "so", partOfSpeech: null },
-            { word: "beautiful", partOfSpeech: "adjective" },
-            { word: "that", partOfSpeech: null },
-            { word: "everyone", partOfSpeech: null },
-            { word: "died", partOfSpeech: null },
-            { word: "the", partOfSpeech: null },
-            { word: "end", partOfSpeech: null },
-            { word: "", partOfSpeech: null }
-        ]
         let b = story22.map((story, i) => {
             let speech = Object.values(story);
             let yes = speech[1];
-            if (speech[1] != null) {
+            if (speech[1] != 'null') {
                 let thing = document.createElement("SPAN");
                 let node = document.createElement("INPUT");
                 let textnode = document.createTextNode(yes);
@@ -94,29 +76,26 @@ const Playing = (props) => {
 
     let onSubmitMadlit = (event) => {
 
-
         let inputArray = Array.from(document.querySelectorAll("#userInput"));
         //console.log(inputArray)
         let inputWords = inputArray.map((item) => item.value);
         //console.log(inputWords);
-
         let inputIndex = 0;
         for (let i = 0; i < story22.length; i++) {
-            if (story22[i].partOfSpeech !== null) {
+            if (story22[i].partOfSpeech !== 'null') {
 
                 story22[i].word = inputWords[inputIndex];
                 inputIndex++;
+
             }
         }
-       // console.log(story22)
+        console.log(story22)
+
 
         setShowInputs(false)
         setShowStory(true)
 
     }
-
-
-
 
     return (
         <div>
@@ -130,25 +109,34 @@ const Playing = (props) => {
 
                         {showInputs &&
 
-                            <form>
-
+                            <form >
                                 <ul id="myList">
+
                                 </ul>
-                                <button onClick={onSubmitMadlit()}>
+                                <button onClick={onSubmitMadlit} >
                                     Submit
                                 </button>
 
                             </form>
                         }
+
                         {showStory &&
-                            <form>
-                                <p>{story22.map((wordObject, i) => (<span>{wordObject.word} </span>))}</p>
-                                { /*<input className={play.bars}></input> <button className={play.randomButton}>RANDOM</button> */}
+                            <div>
+                                <form>
+                                    <p>{story22.map((wordObject, i) => (<span>{wordObject.word} </span>))}</p>
+                                    { /*<input className={play.bars}></input> <button className={play.randomButton}>RANDOM</button> */}
 
-                                {/* create an error: if all inputs are not filled, throw an error to prevent submit */}
+                                    {/* create an error: if all inputs are not filled, throw an error to prevent submit */}
 
 
-                            </form>
+                                </form>
+                                
+                                <button>Play Again?</button>
+                                {/* To play again, maybe store story data in the localstorage/session storage? */}
+                                
+                                <button>Back to Browse!</button>
+                                <button>Insert Like and save button</button>
+                            </div>
                         }
                     </div>
                 </div>

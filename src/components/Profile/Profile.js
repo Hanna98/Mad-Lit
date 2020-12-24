@@ -8,9 +8,10 @@ import { UserContext } from "../UserContext";
 
 
 const Profile = (props) => {
-    let { userValue, userLoginValue } = useContext(UserContext)
-    let [user, setUser] = userValue
-    let [userLogin, setUserLogin] = userLoginValue
+    let { userValue, userLoginValue } = useContext(UserContext);
+    let [user, setUser] = userValue;
+    let [userLogin, setUserLogin] = userLoginValue;
+    
     let [showCards, setShowCards] = useState(false);
     let [story, setStory] = useState([]);
 
@@ -46,7 +47,15 @@ const Profile = (props) => {
                         <p>Change Photo</p>
                         <div className={profile.buttonContainer}>
 
-                            <Link to="/writing" style={{ textDecoration: 'none' }}>
+                            <Link to={{
+
+                                pathname: "/writing",
+                                state: {
+                                    'story': story.story,
+                                    'storyName': story.storyName,
+                                    'partOfSpeech': story.partOfSpeech
+                                }
+                            }} style={{ textDecoration: 'none' }}>
                                 <button className={profile.button}>
                                     Create New Story
                                     </button>
@@ -91,7 +100,7 @@ const Profile = (props) => {
                             {story.map(i => {
                                 console.log(i)
                                 // also pass partOfSpeech
-                                return <Cards story={i.story} storyName={i.story_name} />
+                                return <Cards story={i.story} storyName={i.story_name} partOfSpeech={i.partofspeech} />
                             })}
                         </div>
                     </div>

@@ -1,50 +1,67 @@
-
-.absoluteContainer{ /* body */
-  display:flex;
+.absoluteContainer {
+  /* body */
+  display: grid;
+  grid-template-columns: 20vw 1fr;
   position: absolute;
   top: 75px;
   right: 0;
   bottom: 0;
   left: 0;
+  grid-template-areas: "leftSidebar container"
 }
 
-.leftSidebar { /* sidebar */
+.leftSidebar {
+  /* sidebar */
   width: 20vw;
-  flex-direction:column;
+  height: 100vw;
+  flex-direction: column;
   display: flex;
   background: #302B31;
-  color:white;
+  color: white;
+  position: fixed;
+  grid-area: leftSidebar;
 }
 
-.container { /* main */
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.header { /* page-header */
-height:70px;
-  background:pink;
-  color:white;
-}
-
-.outerGridContainer{ /* content */
-  display:flex;
-  flex:1;
-  overflow:auto;
- /* background:blue; */
-}
-.gridContainer { /* box */
-  display: flex;
- flex:1;
- /* background: firebrick; */
-  align-items:center;
+.container {
+  /* main */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-area: container;
   justify-items: center;
-  justify-content:center;
-  align-content: center;
+  align-items: center;
+  position: relative;
+  overflow: auto;
+  column-gap: 0;
+  row-gap: 2rem;
+  margin-top: 50px;
+  /* avoid pixel unit, change this, nav and header. */
+}
+
+.header {
+  /* page-header */
+  height: 70px;
+  background: pink;
+  color: white;
+}
+
+.outerGridContainer {
+  /* content */
+  display: flex;
+  position: absolute;
+  /*overflow:auto;*/
+  /* background:blue; */
+}
+
+.gridContainer {
+  /* box */
+  display: flex;
+  overflow-x: hidden;
+  /* Hide horizontal scrollbar */
+  overflow-y: scroll;
+  position: relative;
   /* 
-  overflow: scroll;
-*/
+  //     overflow: scroll;
+  //   */
 }
 
 .backgroundHome {
